@@ -1,0 +1,76 @@
+---
+import SectionFadeIn from '../SectionFadeIn.tsx';
+import { getCollection } from 'astro:content';
+
+let projects: any[] = [];
+try {
+  const allProjects = await getCollection('projects');
+  projects = allProjects.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+} catch {
+  // Content collection not yet set up
+}
+---
+
+<section id="projects" class="py-12 sm:py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <SectionFadeIn client:visible>
+      <h2 class="font-mono text-xl sm:text-2xl font-bold mb-6" style="color: var(--text-primary);">
+        Projects
+      </h2>
+    </SectionFadeIn>
+    <div class="space-y-5">
+      {projects.map((project, i) => (
+        <SectionFadeIn client:visible delay={i * 0.1}>
+          <a
+            href={`/projects/${project.id}`}
+            class="group block rounded-xl overflow-hidden transition-all duration-300"
+            style="text-decoration: none; border: 1px solid var(--border-color);"
+          >
+            <div class="flex flex-col sm:flex-row">
+              <div
+                class="sm:w-72 aspect-video sm:aspect-auto shrink-0"
+                style="background-color: var(--bg-surface);"
+              >
+                <div class="w-full h-full min-h-[160px] flex items-center justify-center">
+                  <span class="font-mono text-3xl font-bold opacity-15" style="color: var(--text-primary);">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                </div>
+              </div>
+              <div class="p-5 flex flex-col justify-center">
+                <h3 class="font-mono text-lg font-bold mb-2 group-hover:text-accent-orange transition-colors duration-200" style="color: var(--text-primary);">
+                  {project.data.title}
+                </h3>
+                <p class="font-sans text-sm mb-3" style="color: var(--text-secondary);">
+                  {project.data.description}
+                </p>
+                {project.data.tags && (
+                  <div class="flex flex-wrap gap-2">
+                    {project.data.tags.map((tag: string) => (
+                      <span
+                        class="font-mono text-xs px-2 py-1 rounded"
+                        style="background-color: var(--bg-surface); color: var(--text-secondary);"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </a>
+        </SectionFadeIn>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  a.group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  }
+  :global(.dark) a.group:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+</style>

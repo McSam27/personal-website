@@ -1,0 +1,48 @@
+---
+import SectionFadeIn from '../SectionFadeIn.tsx';
+
+const interests = [
+  { name: 'Lifting', description: 'Strength training and progressive overload.' },
+  { name: 'Running', description: 'Long runs and morning miles.' },
+  { name: 'Keyboards', description: 'Custom builds, switches, and sound profiles.' },
+  { name: 'Woodworking', description: 'Hand tools, joinery, and small projects.' },
+];
+
+const accentColors = [
+  'var(--accent-orange)',
+  'var(--accent-blue)',
+  'var(--accent-teal)',
+  'var(--accent-amber)',
+];
+---
+
+<section class="py-12 sm:py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <SectionFadeIn client:visible>
+      <h2 class="font-mono text-xl sm:text-2xl font-bold mb-6" style="color: var(--text-primary);">
+        Outside
+      </h2>
+    </SectionFadeIn>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {interests.map((item, i) => (
+        <SectionFadeIn client:visible delay={i * 0.08}>
+          <div
+            class="p-5 rounded-xl transition-colors duration-200"
+            style="border: 1px solid var(--border-color);"
+          >
+            <div
+              class="w-2 h-2 rounded-full mb-3"
+              style={`background-color: ${accentColors[i]};`}
+            />
+            <h3 class="font-mono text-sm font-bold mb-1" style="color: var(--text-primary);">
+              {item.name}
+            </h3>
+            <p class="font-sans text-xs" style="color: var(--text-secondary);">
+              {item.description}
+            </p>
+          </div>
+        </SectionFadeIn>
+      ))}
+    </div>
+  </div>
+</section>

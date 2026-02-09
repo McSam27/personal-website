@@ -1,0 +1,36 @@
+---
+import SectionFadeIn from '../SectionFadeIn.tsx';
+
+const links = [
+  { label: 'GitHub', href: 'https://github.com/McSam27' },
+  { label: 'X (Twitter)', href: 'https://x.com/McSam27' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/samuelmccagg/' },
+  { label: 'Email', href: 'mailto:sam.mccagg.dev@gmail.com' },
+  { label: 'Living resume', href: 'https://samuelmccagg.notion.site/samuelmccagg/Hey-there-I-m-Sam-34c3ad4f2f1842b09ed05b713d0820fb' },
+];
+---
+
+<section id="contact" class="py-12 sm:py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <SectionFadeIn client:visible>
+      <h2 class="font-mono text-xl sm:text-2xl font-bold mb-6" style="color: var(--text-primary);">
+        Connect
+      </h2>
+    </SectionFadeIn>
+    <SectionFadeIn client:visible delay={0.1}>
+      <div class="flex flex-wrap gap-6">
+        {links.map((link) => (
+          <a
+            href={link.href}
+            target={link.href.startsWith('http') ? '_blank' : undefined}
+            rel={link.href.startsWith('http') ? 'noopener' : undefined}
+            class="font-mono text-sm transition-colors duration-200 hover:text-accent-orange"
+            style="color: var(--text-secondary); text-decoration: none;"
+          >
+            {link.label}
+          </a>
+        ))}
+      </div>
+    </SectionFadeIn>
+  </div>
+</section>

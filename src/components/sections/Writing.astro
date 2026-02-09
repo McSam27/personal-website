@@ -1,0 +1,59 @@
+---
+import SectionFadeIn from '../SectionFadeIn.tsx';
+import { getCollection } from 'astro:content';
+
+const accentColors = [
+  'var(--accent-orange)',
+  'var(--accent-blue)',
+  'var(--accent-teal)',
+  'var(--accent-amber)',
+  'var(--accent-purple)',
+  'var(--accent-green)',
+];
+
+let posts: any[] = [];
+try {
+  const allPosts = await getCollection('writing');
+  posts = allPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+} catch {
+  // Content collection not yet set up
+}
+---
+
+<section id="writing" class="py-12 sm:py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <SectionFadeIn client:visible>
+      <h2 class="font-mono text-xl sm:text-2xl font-bold mb-6" style="color: var(--text-primary);">
+        Thoughts
+      </h2>
+    </SectionFadeIn>
+    <div class="space-y-0">
+      {posts.map((post, i) => (
+        <SectionFadeIn client:visible delay={i * 0.05}>
+          <a
+            href={`/writing/${post.id}`}
+            class="group flex items-center gap-3 py-3 px-3 -mx-3 rounded-lg transition-colors duration-200"
+            style="text-decoration: none;"
+          >
+            <span
+              class="w-2 h-2 rounded-full shrink-0"
+              style={`background-color: ${accentColors[i % accentColors.length]};`}
+            />
+            <span class="font-sans text-base sm:text-lg flex-1 group-hover:text-accent-orange transition-colors duration-200" style="color: var(--text-primary);">
+              {post.data.title}
+            </span>
+            <span class="font-mono text-xs shrink-0" style="color: var(--text-secondary);">
+              {new Date(post.data.date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+            </span>
+          </a>
+        </SectionFadeIn>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  a.group:hover {
+    background-color: var(--bg-surface);
+  }
+</style>

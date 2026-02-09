@@ -1,0 +1,74 @@
+---
+import SectionFadeIn from '../SectionFadeIn.tsx';
+import { getCollection } from 'astro:content';
+
+const accentColors = [
+  'var(--accent-orange)',
+  'var(--accent-blue)',
+  'var(--accent-teal)',
+  'var(--accent-amber)',
+  'var(--accent-purple)',
+  'var(--accent-green)',
+];
+
+let items: any[] = [];
+try {
+  const allItems = await getCollection('craft');
+  items = allItems.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+} catch {
+  // Content collection not yet set up
+}
+---
+
+<section id="craft" class="py-12 sm:py-16 px-6">
+  <div class="max-w-5xl mx-auto">
+    <SectionFadeIn client:visible>
+      <h2 class="font-mono text-xl sm:text-2xl font-bold mb-6" style="color: var(--text-primary);">
+        Craft
+      </h2>
+    </SectionFadeIn>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+      {items.map((item, i) => (
+        <SectionFadeIn client:visible delay={i * 0.1}>
+          <a
+            href={`/craft/${item.id}`}
+            class="group block rounded-xl overflow-hidden transition-all duration-300"
+            style="text-decoration: none; border: 1px solid var(--border-color);"
+          >
+            <div
+              class="aspect-video w-full"
+              style={`background-color: var(--bg-surface);`}
+            >
+              <div class="w-full h-full flex items-center justify-center">
+                <span
+                  class="font-mono text-4xl font-bold opacity-20"
+                  style={`color: ${accentColors[i % accentColors.length]};`}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="font-mono text-base font-bold mb-1 group-hover:text-accent-orange transition-colors duration-200" style="color: var(--text-primary);">
+                {item.data.title}
+              </h3>
+              <p class="font-sans text-sm" style="color: var(--text-secondary);">
+                {item.data.description}
+              </p>
+            </div>
+          </a>
+        </SectionFadeIn>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  a.group:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  }
+  :global(.dark) a.group:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+</style>

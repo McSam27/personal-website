@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import SectionFadeIn from '../../components/SectionFadeIn.tsx';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const items = await getCollection('craft');
+  return items.map((item) => ({
+    params: { slug: item.id },
+    props: { item },
+  }));
+}
+
+const { item } = Astro.props;
+const { Content } = await render(item);
+---
+
+<BaseLayout title={`${item.data.title} — smccagg`} description={item.data.description}>
+  <Header />
+  <main class="pt-32 pb-20 px-6">
+    <article class="max-w-2xl mx-auto">
+      <SectionFadeIn client:visible>
+        <a
+          href="/"
+          class="font-mono text-sm mb-8 inline-block transition-colors duration-200 hover:text-accent-orange"
+          style="color: var(--text-secondary); text-decoration: none;"
+        >
+          &larr; back
+        </a>
+        <h1 class="font-mono text-3xl sm:text-4xl font-bold mb-4" style="color: var(--text-primary);">
+          {item.data.title}
+        </h1>
+        <p class="font-mono text-sm mb-8" style="color: var(--text-secondary);">
+          {new Date(item.data.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+        </p>
+      </SectionFadeIn>
+      <SectionFadeIn client:visible delay={0.1}>
+        <div class="prose font-sans text-base leading-relaxed" style="color: var(--text-primary);">
+          <Content />
+        </div>
+      </SectionFadeIn>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .prose :global(p) {
+    margin-bottom: 1.25em;
+    color: var(--text-primary);
+  }
+  .prose :global(h2) {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    color: var(--text-primary);
+  }
+  .prose :global(a) {
+    color: var(--accent-orange);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .prose :global(code) {
+    font-family: var(--font-mono);
+    font-size: 0.875em;
+    background-color: var(--bg-surface);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+  }
+</style>

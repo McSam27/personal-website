@@ -1,0 +1,67 @@
+---
+import HeaderWrapper from './HeaderWrapper.tsx';
+import ThemeToggle from './ThemeToggle.tsx';
+---
+
+<HeaderWrapper client:load>
+  <nav class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="font-mono text-lg font-bold tracking-tight" style="color: var(--text-primary); text-decoration: none;">
+      smccagg
+    </a>
+    <div class="hidden sm:flex items-center gap-6">
+      <a href="/#writing" class="font-mono text-sm transition-colors duration-200 hover:text-accent-orange" style="color: var(--text-secondary); text-decoration: none;">
+        writing
+      </a>
+      <a href="/#craft" class="font-mono text-sm transition-colors duration-200 hover:text-accent-orange" style="color: var(--text-secondary); text-decoration: none;">
+        craft
+      </a>
+      <a href="/#projects" class="font-mono text-sm transition-colors duration-200 hover:text-accent-orange" style="color: var(--text-secondary); text-decoration: none;">
+        projects
+      </a>
+      <a href="/#contact" class="font-mono text-sm transition-colors duration-200 hover:text-accent-orange" style="color: var(--text-secondary); text-decoration: none;">
+        contact
+      </a>
+      <ThemeToggle client:load />
+    </div>
+    <div class="flex items-center gap-2 sm:hidden">
+      <ThemeToggle client:load />
+      <button id="mobile-toggle" class="p-2" style="color: var(--text-primary);" aria-label="Toggle menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobile-menu" class="hidden sm:hidden px-6 pb-4">
+    <div class="flex flex-col gap-3">
+      <a href="/#writing" class="font-mono text-sm py-1 transition-colors duration-200 hover:text-accent-orange" style="color: var(--text-secondary); text-decoration: none;">
+        writing
+      </a>
+      <a href="/#craft" class="font-mono text-sm py-1 transition-colors duration-200 hover:text-accent-orange" style="color: var(--text-secondary); text-decoration: none;">
+        craft
+      </a>
+      <a href="/#projects" class="font-mono text-sm py-1 transition-colors duration-200 hover:text-accent-orange" style="color: var(--text-secondary); text-decoration: none;">
+        projects
+      </a>
+      <a href="/#contact" class="font-mono text-sm py-1 transition-colors duration-200 hover:text-accent-orange" style="color: var(--text-secondary); text-decoration: none;">
+        contact
+      </a>
+    </div>
+  </div>
+</HeaderWrapper>
+
+<script>
+  const toggle = document.getElementById('mobile-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+  // Close menu on link click
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+    });
+  });
+</script>

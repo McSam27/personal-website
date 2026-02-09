@@ -1,0 +1,25 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t py-8 px-6" style="border-color: var(--border-color);">
+  <div class="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+    <p class="font-mono text-xs" style="color: var(--text-secondary);">
+      &copy; {year} smccagg
+    </p>
+    <div class="flex items-center gap-4">
+      <button
+        id="replay-btn"
+        class="font-mono text-xs transition-colors duration-200 hover:text-accent-orange cursor-pointer"
+        style="color: var(--text-secondary); background: none; border: none;"
+      >
+        replay intro
+      </button>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('replay-btn')?.addEventListener('click', () => {
+    window.dispatchEvent(new CustomEvent('replay-loading'));
+  });
+</script>

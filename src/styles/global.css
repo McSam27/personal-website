@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* ─── Font Faces ─── */
+@font-face {
+  font-family: "Commit Mono";
+  src: url("./fonts/CommitMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Commit Mono";
+  src: url("./fonts/CommitMono-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("./fonts/InstrumentSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("./fonts/InstrumentSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ─── Tailwind v4 Theme ─── */
+@theme {
+  --font-mono: "Commit Mono", ui-monospace, monospace;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+
+  --color-bg: var(--bg);
+  --color-bg-surface: var(--bg-surface);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-border: var(--border-color);
+  --color-accent-orange: var(--accent-orange);
+  --color-accent-blue: var(--accent-blue);
+  --color-accent-amber: var(--accent-amber);
+  --color-accent-teal: var(--accent-teal);
+  --color-accent-purple: var(--accent-purple);
+  --color-accent-green: var(--accent-green);
+  --color-dark: var(--dark);
+}
+
+/* ─── Color Tokens ─── */
+:root {
+  --bg: #F0F0EC;
+  --bg-surface: #E4E2DD;
+  --text-primary: #1A1A1A;
+  --text-secondary: #6B6B6B;
+  --border-color: #D4D4D0;
+  --accent-orange: #E8562A;
+  --accent-blue: #4A5FC1;
+  --accent-amber: #D4913A;
+  --accent-teal: #3A8C8C;
+  --accent-purple: #6B5CA5;
+  --accent-green: #4A8C5C;
+  --dark: #2D2D30;
+
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0A0A0A;
+  --bg-surface: #141414;
+  --text-primary: #EDEDEC;
+  --text-secondary: #888888;
+  --border-color: #2A2A2A;
+  --accent-orange: #F06A3E;
+  --accent-blue: #5A6FD1;
+  --accent-amber: #E4A14A;
+  --accent-teal: #4A9C9C;
+  --accent-purple: #7B6CB5;
+  --accent-green: #5A9C6C;
+  --dark: #2D2D30;
+
+  color-scheme: dark;
+}
+
+/* ─── Base Styles ─── */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+}
+
+/* ─── Selection ─── */
+::selection {
+  background-color: var(--accent-orange);
+  color: white;
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
