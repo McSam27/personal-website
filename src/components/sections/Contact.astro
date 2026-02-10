@@ -3,10 +3,19 @@ import SectionFadeIn from '../SectionFadeIn.tsx';
 
 const links = [
   { label: 'GitHub', href: 'https://github.com/McSam27' },
-  { label: 'X (Twitter)', href: 'https://x.com/McSam27' },
+  /* { label: 'X (Twitter)', href: 'https://x.com/McSam27' }, */
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/samuelmccagg/' },
   { label: 'Email', href: 'mailto:sam.mccagg.dev@gmail.com' },
   { label: 'Living resume', href: 'https://samuelmccagg.notion.site/samuelmccagg/Hey-there-I-m-Sam-34c3ad4f2f1842b09ed05b713d0820fb' },
+];
+
+const accentColors = [
+  'var(--accent-orange)',
+  'var(--accent-blue)',
+  'var(--accent-teal)',
+  'var(--accent-amber)',
+  'var(--accent-purple)',
+  'var(--accent-green)',
 ];
 ---
 
@@ -18,17 +27,25 @@ const links = [
       </h2>
     </SectionFadeIn>
     <SectionFadeIn client:visible delay={0.1}>
-      <div class="flex flex-wrap gap-6">
-        {links.map((link) => (
-          <a
-            href={link.href}
-            target={link.href.startsWith('http') ? '_blank' : undefined}
-            rel={link.href.startsWith('http') ? 'noopener' : undefined}
-            class="font-mono text-sm transition-colors duration-200 hover:text-accent-orange"
-            style="color: var(--text-secondary); text-decoration: none;"
-          >
-            {link.label}
-          </a>
+      <div class="flex flex-wrap items-center gap-4">
+        {links.map((link, i) => (
+          <>
+            <a
+              href={link.href}
+              target={link.href.startsWith('http') ? '_blank' : undefined}
+              rel={link.href.startsWith('http') ? 'noopener' : undefined}
+              class="font-mono text-sm transition-colors duration-200 hover:text-accent-orange"
+              style="color: var(--text-secondary); text-decoration: none;"
+            >
+              {link.label}
+            </a>
+            {i < links.length - 1 && (
+              <span
+                class="w-1.5 h-1.5 rounded-full shrink-0"
+                style={`background-color: ${accentColors[i % accentColors.length]};`}
+              />
+            )}
+          </>
         ))}
       </div>
     </SectionFadeIn>

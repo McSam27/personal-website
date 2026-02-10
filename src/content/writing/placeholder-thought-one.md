@@ -2,7 +2,6 @@
 title: "On Building in the Open"
 date: "2025-01-15"
 description: "Thoughts on sharing work before it's polished and the value of public iteration."
-tags: ["process", "craft"]
 ---
 
 There's a certain vulnerability to sharing work before it's done. We're trained to present finished products — polished, complete, ready for critique. But there's something powerful about building in the open.

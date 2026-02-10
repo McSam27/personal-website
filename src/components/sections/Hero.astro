@@ -1,17 +1,18 @@
 ---
 import SectionFadeIn from '../SectionFadeIn.tsx';
+import AnimatedPlus from '../AnimatedPlus.tsx';
 ---
 
 <section class="px-6 pt-32 pb-16 sm:pt-40 sm:pb-20">
   <div class="max-w-5xl mx-auto w-full">
     <SectionFadeIn client:visible>
       <h1 class="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-3" style="color: var(--text-primary);">
-        smccagg
+        Sam McCagg
       </h1>
     </SectionFadeIn>
     <SectionFadeIn client:visible delay={0.1}>
       <p class="font-sans text-lg sm:text-xl mb-4" style="color: var(--text-secondary);">
-        Design & Front-End Engineer
+        Designer <AnimatedPlus client:visible /> Front-End Engineer
       </p>
     </SectionFadeIn>
     <SectionFadeIn client:visible delay={0.2}>

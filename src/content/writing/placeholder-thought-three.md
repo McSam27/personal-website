@@ -2,7 +2,6 @@
 title: "The Keyboard Rabbit Hole"
 date: "2024-11-20"
 description: "How custom keyboards became a lens for understanding craft and attention to detail."
-tags: ["keyboards", "craft"]
 ---
 
 It started with a keycap set. A friend showed me their custom mechanical keyboard, and something about the satisfying thock of each keypress caught my attention. Six months later, I own three custom boards and can debate the merits of linear vs. tactile switches for longer than anyone should.

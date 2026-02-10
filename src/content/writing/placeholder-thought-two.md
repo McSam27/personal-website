@@ -2,7 +2,6 @@
 title: "Design Systems as Living Documents"
 date: "2025-02-01"
 description: "Why your design system should evolve with your product, not ahead of it."
-tags: ["design", "systems"]
 ---
 
 A design system isn't a static artifact. It's not a PDF you hand off to engineering and walk away from. The best design systems are living, breathing things that evolve alongside the product they serve.

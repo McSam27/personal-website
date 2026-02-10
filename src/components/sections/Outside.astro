@@ -2,10 +2,10 @@
 import SectionFadeIn from '../SectionFadeIn.tsx';
 
 const interests = [
-  { name: 'Lifting', description: 'Strength training and progressive overload.' },
-  { name: 'Running', description: 'Long runs and morning miles.' },
-  { name: 'Keyboards', description: 'Custom builds, switches, and sound profiles.' },
-  { name: 'Woodworking', description: 'Hand tools, joinery, and small projects.' },
+  { name: 'Lifting', emoji: '\u{1F3CB}\u{FE0F}', description: "I have been lifting weights since college and lately I've been exploring functional fitness principles, revolving around longevity, kettlebell flows, mobility training and hyrox-styled workouts." },
+  { name: 'Running', emoji: '\u{1F3C3}', description: "I have never been a huge long distance runner, but in my later years of life... I'm learning to embrace the quiet runs." },
+  { name: 'Keyboards', emoji: '\u{2328}\u{FE0F}', description: 'Custom builds, switches, and sound profiles.' },
+  { name: 'Woodworking', emoji: '\u{1FA9A}', description: 'Hand tools, joinery, and small projects.' },
 ];
 
 const accentColors = [
@@ -20,7 +20,7 @@ const accentColors = [
   <div class="max-w-5xl mx-auto">
     <SectionFadeIn client:visible>
       <h2 class="font-mono text-xl sm:text-2xl font-bold mb-6" style="color: var(--text-primary);">
-        Outside
+        Hobbies
       </h2>
     </SectionFadeIn>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -30,10 +30,7 @@ const accentColors = [
             class="p-5 rounded-xl transition-colors duration-200"
             style="border: 1px solid var(--border-color);"
           >
-            <div
-              class="w-2 h-2 rounded-full mb-3"
-              style={`background-color: ${accentColors[i]};`}
-            />
+            <span class="text-xl mb-2 block">{item.emoji}</span>
             <h3 class="font-mono text-sm font-bold mb-1" style="color: var(--text-primary);">
               {item.name}
             </h3>
