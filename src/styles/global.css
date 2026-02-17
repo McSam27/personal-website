@@ -2,126 +2,154 @@
 
 /* ─── Font Faces ─── */
 @font-face {
-  font-family: "Commit Mono";
-  src: url("./fonts/CommitMono-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Commit Mono";
+    src: url("./fonts/CommitMono-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Commit Mono";
-  src: url("./fonts/CommitMono-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Commit Mono";
+    src: url("./fonts/CommitMono-Bold.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Instrument Sans";
-  src: url("./fonts/InstrumentSans-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Instrument Sans";
+    src: url("./fonts/InstrumentSans-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Instrument Sans";
-  src: url("./fonts/InstrumentSans-Medium.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
+    font-family: "Instrument Sans";
+    src: url("./fonts/InstrumentSans-Medium.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
 }
 
 /* ─── Tailwind v4 Theme ─── */
 @theme {
-  --font-mono: "Commit Mono", ui-monospace, monospace;
-  --font-sans: "Instrument Sans", system-ui, sans-serif;
+    --font-mono: "Commit Mono", ui-monospace, monospace;
+    --font-sans: "Instrument Sans", system-ui, sans-serif;
 
-  --color-bg: var(--bg);
-  --color-bg-surface: var(--bg-surface);
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-border: var(--border-color);
-  --color-accent-orange: var(--accent-orange);
-  --color-accent-blue: var(--accent-blue);
-  --color-accent-amber: var(--accent-amber);
-  --color-accent-teal: var(--accent-teal);
-  --color-accent-purple: var(--accent-purple);
-  --color-accent-green: var(--accent-green);
-  --color-dark: var(--dark);
+    --color-bg: var(--bg);
+    --color-bg-surface: var(--bg-surface);
+    --color-text-primary: var(--text-primary);
+    --color-text-secondary: var(--text-secondary);
+    --color-border: var(--border-color);
+    --color-accent-orange: var(--accent-orange);
+    --color-accent-blue: var(--accent-blue);
+    --color-accent-amber: var(--accent-amber);
+    --color-accent-teal: var(--accent-teal);
+    --color-accent-purple: var(--accent-purple);
+    --color-accent-green: var(--accent-green);
+    --color-dark: var(--dark);
 }
 
 /* ─── Color Tokens ─── */
 :root {
-  --bg: #F0F0EC;
-  --bg-surface: #E4E2DD;
-  --text-primary: #1A1A1A;
-  --text-secondary: #6B6B6B;
-  --border-color: #D4D4D0;
-  --accent-orange: #E8562A;
-  --accent-blue: #4A5FC1;
-  --accent-amber: #D4913A;
-  --accent-teal: #3A8C8C;
-  --accent-purple: #6B5CA5;
-  --accent-green: #4A8C5C;
-  --dark: #2D2D30;
+    --bg: #f0f0ec;
+    --bg-surface: #e4e2dd;
+    --text-primary: #1a1a1a;
+    --text-secondary: #6b6b6b;
+    --border-color: #d4d4d0;
+    --accent-orange: #e8562a;
+    --accent-blue: #4a5fc1;
+    --accent-amber: #d4913a;
+    --accent-teal: #3a8c8c;
+    --accent-purple: #6b5ca5;
+    --accent-green: #4a8c5c;
+    --dark: #2d2d30;
 
-  color-scheme: light;
+    color-scheme: light;
 }
 
 .dark {
-  --bg: #0A0A0A;
-  --bg-surface: #141414;
-  --text-primary: #EDEDEC;
-  --text-secondary: #888888;
-  --border-color: #2A2A2A;
-  --accent-orange: #F06A3E;
-  --accent-blue: #5A6FD1;
-  --accent-amber: #E4A14A;
-  --accent-teal: #4A9C9C;
-  --accent-purple: #7B6CB5;
-  --accent-green: #5A9C6C;
-  --dark: #2D2D30;
+    --bg: #0a0a0a;
+    --bg-surface: #141414;
+    --text-primary: #ededec;
+    --text-secondary: #888888;
+    --border-color: #2a2a2a;
+    --accent-orange: #f06a3e;
+    --accent-blue: #5a6fd1;
+    --accent-amber: #e4a14a;
+    --accent-teal: #4a9c9c;
+    --accent-purple: #7b6cb5;
+    --accent-green: #5a9c6c;
+    --dark: #2d2d30;
 
-  color-scheme: dark;
+    color-scheme: dark;
 }
 
 /* ─── Base Styles ─── */
 html {
-  scroll-behavior: smooth;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  font-family: var(--font-sans);
-  background-color: var(--bg);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-  line-height: 1.6;
+    font-family: var(--font-sans);
+    background-color: var(--bg);
+    color: var(--text-primary);
+    line-height: 1.6;
 }
 
 /* ─── Selection ─── */
 ::selection {
-  background-color: var(--accent-orange);
-  color: white;
+    background-color: var(--accent-orange);
+    color: white;
 }
 
 /* ─── Scrollbar ─── */
 ::-webkit-scrollbar {
-  width: 6px;
+    width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg);
+    background: var(--bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-color);
-  border-radius: 3px;
+    background: var(--border-color);
+    border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-secondary);
+    background: var(--text-secondary);
+}
+
+/* ─── Theme Splash Transition ─── */
+::view-transition-old(root) {
+    animation: none;
+    z-index: 1;
+}
+
+::view-transition-new(root) {
+    animation: splash-reveal 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 9999;
+}
+
+@keyframes splash-reveal {
+    from {
+        clip-path: circle(0px at var(--toggle-x) var(--toggle-y));
+    }
+    to {
+        clip-path: circle(
+            var(--toggle-radius) at var(--toggle-x) var(--toggle-y)
+        );
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
 }
