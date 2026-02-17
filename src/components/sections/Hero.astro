@@ -1,24 +1,46 @@
 ---
-import SectionFadeIn from '../SectionFadeIn.tsx';
-import AnimatedPlus from '../AnimatedPlus.tsx';
+import SectionFadeIn from "../SectionFadeIn.tsx";
+import AnimatedPlus from "../AnimatedPlus.tsx";
 ---
 
 <section class="px-6 pt-32 pb-16 sm:pt-40 sm:pb-20">
-  <div class="max-w-5xl mx-auto w-full">
-    <SectionFadeIn client:visible>
-      <h1 class="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-3" style="color: var(--text-primary);">
-        Sam McCagg
-      </h1>
-    </SectionFadeIn>
-    <SectionFadeIn client:visible delay={0.1}>
-      <p class="font-sans text-lg sm:text-xl mb-4" style="color: var(--text-secondary);">
-        Designer <AnimatedPlus client:visible /> Front-End Engineer
-      </p>
-    </SectionFadeIn>
-    <SectionFadeIn client:visible delay={0.2}>
-      <p class="font-sans text-base max-w-xl leading-relaxed" style="color: var(--text-secondary);">
-        I build thoughtful interfaces and digital experiences. Focused on the intersection of design and engineering — where pixels meet code. Currently exploring keyboards, craft, and the web.
-      </p>
-    </SectionFadeIn>
-  </div>
+    <div class="max-w-5xl mx-auto w-full">
+        <SectionFadeIn client:visible>
+            <h1
+                class="font-mono text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-3"
+                style="color: var(--text-primary);"
+            >
+                Sam McCagg
+            </h1>
+        </SectionFadeIn>
+        <SectionFadeIn client:visible delay={0.1}>
+            <p
+                class="font-sans text-lg sm:text-xl mb-4"
+                style="color: var(--text-secondary);"
+            >
+                Designer <AnimatedPlus client:visible /> Front-End Engineer
+            </p>
+        </SectionFadeIn>
+        <SectionFadeIn client:visible delay={0.2}>
+            <p
+                class="font-sans text-base max-w-xl leading-relaxed mb-4"
+                style="color: var(--text-secondary);"
+            >
+                I build thoughtful interfaces and digital experiences. Focused
+                on the intersection of design and engineering — where pixels
+                meet code.
+            </p>
+        </SectionFadeIn>
+        <SectionFadeIn client:visible delay={0.2}>
+            <p>Today</p>
+            <p
+                class="font-sans text-base max-w-xl leading-relaxed"
+                style="color: var(--text-secondary);"
+            >
+                I am a Member of Technical Staff at Edison Scientific. I am
+                currently building out new user interfaces and and improving the
+                customer experience.
+            </p>
+        </SectionFadeIn>
+    </div>
 </section>
