@@ -1,45 +1,76 @@
 ---
-import SectionFadeIn from '../SectionFadeIn.tsx';
+import SectionFadeIn from "../SectionFadeIn.tsx";
 
 const interests = [
-  { name: 'Lifting', emoji: '\u{1F3CB}\u{FE0F}', description: "I have been lifting weights since college and lately I've been exploring functional fitness principles, revolving around longevity, kettlebell flows, mobility training and hyrox-styled workouts." },
-  { name: 'Running', emoji: '\u{1F3C3}', description: "I have never been a huge long distance runner, but in my later years of life... I'm learning to embrace the quiet runs." },
-  { name: 'Keyboards', emoji: '\u{2328}\u{FE0F}', description: 'Custom builds, switches, and sound profiles.' },
-  { name: 'Woodworking', emoji: '\u{1FA9A}', description: 'Hand tools, joinery, and small projects.' },
+    {
+        name: "Lifting",
+        emoji: "\u{1F3CB}\u{FE0F}",
+        description:
+            "I have been lifting weights since college and lately I've been exploring functional fitness principles, revolving around longevity, kettlebell flows, mobility training and hyrox-styled workouts.",
+    },
+    {
+        name: "Running",
+        emoji: "\u{1F3C3}",
+        description:
+            "I have never been a huge long distance runner, but in my later years of life... I'm learning to embrace the quiet runs.",
+    },
+    {
+        name: "Keyboards",
+        emoji: "\u{2328}\u{FE0F}",
+        description:
+            "I run a small business selling custom keyboard cases that I laser cut. I also have a collection of around 15 keyboards spread through my shelves in my office.",
+    },
+    {
+        name: "Woodworking",
+        emoji: "\u{1FA9A}",
+        description:
+            "After owning a house and seeing how poorly furniture is made nowadays... I challenged myself to pick up woodworking and learn how to make my own furniture.",
+    },
 ];
 
 const accentColors = [
-  'var(--accent-orange)',
-  'var(--accent-blue)',
-  'var(--accent-teal)',
-  'var(--accent-amber)',
+    "var(--accent-orange)",
+    "var(--accent-blue)",
+    "var(--accent-teal)",
+    "var(--accent-amber)",
 ];
 ---
 
 <section class="py-12 sm:py-16 px-6">
-  <div class="max-w-5xl mx-auto">
-    <SectionFadeIn client:visible>
-      <h2 class="font-mono text-xl sm:text-2xl font-bold mb-6" style="color: var(--text-primary);">
-        Hobbies
-      </h2>
-    </SectionFadeIn>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {interests.map((item, i) => (
-        <SectionFadeIn client:visible delay={i * 0.08}>
-          <div
-            class="p-5 rounded-xl transition-colors duration-200"
-            style="border: 1px solid var(--border-color);"
-          >
-            <span class="text-xl mb-2 block">{item.emoji}</span>
-            <h3 class="font-mono text-sm font-bold mb-1" style="color: var(--text-primary);">
-              {item.name}
-            </h3>
-            <p class="font-sans text-xs" style="color: var(--text-secondary);">
-              {item.description}
-            </p>
-          </div>
+    <div class="max-w-5xl mx-auto">
+        <SectionFadeIn client:visible>
+            <h2
+                class="font-mono text-xl sm:text-2xl font-bold mb-6"
+                style="color: var(--text-primary);"
+            >
+                Hobbies
+            </h2>
         </SectionFadeIn>
-      ))}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {
+                interests.map((item, i) => (
+                    <SectionFadeIn client:visible delay={i * 0.08}>
+                        <div
+                            class="p-5 rounded-xl transition-colors duration-200"
+                            style="border: 1px solid var(--border-color);"
+                        >
+                            <span class="text-xl mb-2 block">{item.emoji}</span>
+                            <h3
+                                class="font-mono text-sm font-bold mb-1"
+                                style="color: var(--text-primary);"
+                            >
+                                {item.name}
+                            </h3>
+                            <p
+                                class="font-sans text-xs"
+                                style="color: var(--text-secondary);"
+                            >
+                                {item.description}
+                            </p>
+                        </div>
+                    </SectionFadeIn>
+                ))
+            }
+        </div>
     </div>
-  </div>
 </section>

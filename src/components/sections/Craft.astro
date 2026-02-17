@@ -1,33 +1,52 @@
 ---
-import SectionFadeIn from '../SectionFadeIn.tsx';
-import { getCollection } from 'astro:content';
+import SectionFadeIn from "../SectionFadeIn.tsx";
+import { getCollection } from "astro:content";
 
 const accentColors = [
-  'var(--accent-orange)',
-  'var(--accent-blue)',
-  'var(--accent-teal)',
-  'var(--accent-amber)',
-  'var(--accent-purple)',
-  'var(--accent-green)',
+    "var(--accent-orange)",
+    "var(--accent-blue)",
+    "var(--accent-teal)",
+    "var(--accent-amber)",
+    "var(--accent-purple)",
+    "var(--accent-green)",
 ];
 
 let items: any[] = [];
 try {
-  const allItems = await getCollection('craft');
-  items = allItems.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+    const allItems = await getCollection("craft");
+    items = allItems.sort(
+        (a, b) =>
+            new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+    );
 } catch {
-  // Content collection not yet set up
+    // Content collection not yet set up
 }
 ---
 
 <section id="craft" class="py-12 sm:py-16 px-6">
-  <div class="max-w-5xl mx-auto">
-    <SectionFadeIn client:visible>
-      <h2 class="font-mono text-xl sm:text-2xl font-bold mb-6" style="color: var(--text-primary);">
-        Craft
-      </h2>
-    </SectionFadeIn>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <div class="max-w-5xl mx-auto">
+        <SectionFadeIn client:visible>
+            <h2
+                class="font-mono text-xl sm:text-2xl font-bold mb-6"
+                style="color: var(--text-primary);"
+            >
+                Craft
+            </h2>
+        </SectionFadeIn>
+        <SectionFadeIn client:visible delay={0.1}>
+            <div
+                class="rounded-xl py-8 px-6 text-center"
+                style="border: 1px dashed var(--border-color); background-color: var(--bg-surface);"
+            >
+                <p
+                    class="font-mono text-sm"
+                    style="color: var(--text-secondary);"
+                >
+                    Coming soon
+                </p>
+            </div>
+        </SectionFadeIn>
+        <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
       {items.map((item, i) => (
         <SectionFadeIn client:visible delay={i * 0.1}>
           <a
@@ -59,16 +78,16 @@ try {
           </a>
         </SectionFadeIn>
       ))}
+    </div> -->
     </div>
-  </div>
 </section>
 
 <style>
-  a.group:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  }
-  :global(.dark) a.group:hover {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-  }
+    a.group:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+    }
+    :global(.dark) a.group:hover {
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
 </style>
